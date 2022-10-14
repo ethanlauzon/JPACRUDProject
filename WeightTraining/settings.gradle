@@ -1,1 +1,3 @@
 rootProject.name = 'WeightTraining'
+
+includeFlat 'JPAWeightTraining'
