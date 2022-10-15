@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+td{
+	font-size: 20px;
+	text-align: center;
+	padding: 10px;
+	
+}
+
+th{
+	background-color: black;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	padding: 10px;
+	
+}
+tr:hover {background-color: red;}
+table {
+	border-collapse: collapse;
+	width: 100%;
+	
+}
+
+table, td, th, tr{
+	border: 2px solid black;
+}
