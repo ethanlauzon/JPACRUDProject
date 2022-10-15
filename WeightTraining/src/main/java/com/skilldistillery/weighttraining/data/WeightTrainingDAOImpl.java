@@ -3,6 +3,8 @@ package com.skilldistillery.weighttraining.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -16,7 +18,7 @@ public class WeightTrainingDAOImpl implements WeightTrainingDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public List<WeightTraining> findAll() {
 		String jpql = "SELECT wt FROM WeightTraining wt";
@@ -30,20 +32,35 @@ public class WeightTrainingDAOImpl implements WeightTrainingDAO {
 
 	@Override
 	public WeightTraining create(WeightTraining wt) {
-		
-		return null;
+		em.persist(wt);
+		return wt;
 	}
 
 	@Override
 	public WeightTraining update(int id, WeightTraining wt) {
-		// TODO Auto-generated method stub
-		return null;
+		WeightTraining dbWT = em.find(WeightTraining.class, id);
+		if (dbWT != null) {
+			dbWT.setFirstName(wt.getFirstName());
+			dbWT.setLastName(wt.getLastName());
+			dbWT.setOhp(wt.getOhp());
+			dbWT.setBench(wt.getBench());
+			dbWT.setSquat(wt.getSquat());
+			dbWT.setBentOverRows(wt.getBentOverRows());
+			dbWT.setDeadlift(wt.getDeadlift());
+		}
+		em.persist(dbWT);
+		
+		return dbWT;
 	}
 
 	@Override
 	public boolean deleteById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean successfullyKickedOut = false;
+		WeightTraining quitter = em.find(WeightTraining.class, id);
+		if (quitter != null) {
+			em.remove(quitter);
+			successfullyKickedOut = !em.contains(quitter);
+		}
+		return successfullyKickedOut;
 	}
-
 }

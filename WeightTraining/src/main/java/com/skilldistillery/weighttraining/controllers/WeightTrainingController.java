@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.weighttraining.data.WeightTrainingDAO;
+import com.skilldistillery.weighttraining.entities.WeightTraining;
 
 @Controller
 public class WeightTrainingController {
@@ -18,4 +19,12 @@ public class WeightTrainingController {
 		model.addAttribute("weightTraining", wtd.findAll());
 		return "index";
 	}
+	
+	@RequestMapping(path = "getWeightTrainer.do")
+	public String showTrainer(Integer wtid, Model model) {
+		WeightTraining wt = wtd.findById(wtid);
+		model.addAttribute("weightTraining", wt);
+		return "trainer";
+	}
+	
 }

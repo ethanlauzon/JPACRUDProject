@@ -29,18 +29,22 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="weights" items="${weightTraining }">
-			<tr>
-				<td>${weights.firstName }</td>
-				<td>${weights.lastName }</td>
-				<td>${weights.ohp }</td>
-				<td>${weights.squat }</td>
-				<td>${weights.bentOverRows }</td>
-				<td>${weights.deadlift }</td>
-				<td>${weights.bench}</td>
-			</tr>
-		</c:forEach>
+			<c:forEach var="weights" items="${weightTraining }">
+				<tr>
+					<td><a href="getWeightTrainer.do?wtid=${weights.id }">${weights.firstName }</a></td>
+					<td>${weights.lastName }</td>
+					<td>${weights.ohp }</td>
+					<td>${weights.squat }</td>
+					<td>${weights.bentOverRows }</td>
+					<td>${weights.deadlift }</td>
+					<td>${weights.bench}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
+	<form action="createWeightTrainer.do" method="GET">
+		Create New Weight Trainer: <input type="text" name="wtid" /> <input
+			type="submit" value="Create" />
+	</form>
 </body>
 </html>
