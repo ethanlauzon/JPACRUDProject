@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,12 +8,14 @@
 <title>Edit Trainer</title>
 </head>
 <body>
-
 <h2> Edit Trainer </h2>
+
 	<h4>Trainer ID: "${weightTraining.id }"</h4>
+	
 <form action="editTrainer.do" method="POST">
 	
 	 
+	 <br> <input type="hidden" name="id" value="${weightTraining.id }"/>
 	<br> First Name: <input type="text" name="firstName" value="${weightTraining.firstName }"/> 
 	<br> Last Name:	<input type="text" name="lastName" value="${weightTraining.lastName }"/> 
 	<br> Over Head Press: <input type="number" name="ohp" value="${weightTraining.ohp }"/> 

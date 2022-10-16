@@ -3,8 +3,6 @@ package com.skilldistillery.weighttraining.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -33,6 +31,7 @@ public class WeightTrainingDAOImpl implements WeightTrainingDAO {
 	@Override
 	public WeightTraining create(WeightTraining wt) {
 		em.persist(wt);
+		em.flush();
 		return wt;
 	}
 
@@ -40,6 +39,7 @@ public class WeightTrainingDAOImpl implements WeightTrainingDAO {
 	public WeightTraining update(int id, WeightTraining wt) {
 		WeightTraining dbWT = em.find(WeightTraining.class, id);
 		if (dbWT != null) {
+			dbWT.setId(id);
 			dbWT.setFirstName(wt.getFirstName());
 			dbWT.setLastName(wt.getLastName());
 			dbWT.setOhp(wt.getOhp());

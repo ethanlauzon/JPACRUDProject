@@ -24,11 +24,15 @@
 	<input type="number" name="id">
 	<input type="submit" name="delete">
 	</form>
-	<form action="editTrainer.do?id=${weightTraining.id }" method="GET">
+	<form action="createEditForm.do"  method="GET">
 	Edit Trainer By ID:
-	<input type="number" name="id">
+	<input type="number" name="id" value="${weightTraining.id }">
 	<input type="submit" name="edit">
 	</form>
-	<h3><a href = "createTrainer.do?wt=${weightTraining }">Add New Trainer</a></h3>
+	<!-- <h3><a href = "createTrainer.do">Add New Trainer</a></h3> -->
+	<form action="createForm.do" method="GET">
+	<button type="submit">Create</button>
+	</form>
+	
 </body>
 </html>

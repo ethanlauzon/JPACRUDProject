@@ -46,8 +46,13 @@ class WeightTrainingTest {
 	@Test
 	void test() {
 		assertNotNull(wt);
+		assertEquals("Ethan", wt.getFirstName());
+		assertEquals("Lauzon", wt.getLastName());
 		assertEquals(125, wt.getBench());
 		assertEquals(255, wt.getDeadlift());
+		assertEquals(105, wt.getOhp());
+		assertEquals(165, wt.getSquat());
+		assertEquals(105, wt.getBentOverRows());
 	}
 
 }
