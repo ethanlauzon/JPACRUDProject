@@ -27,4 +27,22 @@ public class WeightTrainingController {
 		return "trainer";
 	}
 	
+	@RequestMapping(path = "deleteTrainer.do")
+	public String deleteTrainer(int id) {
+		wtd.deleteById(id);
+		return"index";
+	}
+	
+	@RequestMapping(path ="editTrainer.do")
+	public String editTrainer(int id, WeightTraining wt) {
+		wtd.update(id, wt);
+		return "edit";
+	}
+	
+	@RequestMapping(path="createTrainer.do")
+	public String createTrainer(WeightTraining wt) {
+		wtd.create(wt);
+		return "index";
+	}
+	
 }

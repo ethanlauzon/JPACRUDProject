@@ -42,9 +42,5 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<form action="createWeightTrainer.do" method="GET">
-		Create New Weight Trainer: <input type="text" name="wtid" /> <input
-			type="submit" value="Create" />
-	</form>
 </body>
 </html>

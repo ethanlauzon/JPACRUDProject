@@ -9,7 +9,8 @@
 </head>
 <body>
 	<div>
-		<h3>${weightTraining.firstName} ${weightTraining.lastName}</h3>
+		<h1>${weightTraining.firstName} ${weightTraining.lastName} </h1>
+		<h5>Trainer ID: ${weightTraining.id}</h5>
 		<ul>
 			<li>OHP: ${weightTraining.ohp }</li>
 			<li>Back Squat: ${weightTraining.squat }</li>
@@ -18,5 +19,16 @@
 			<li>Bench Press: ${weightTraining.bench }</li>
 		</ul>
 	</div>
+	<form action="deleteTrainer.do?wtid=${weightTraining.id }" method="GET">
+	Delete Trainer By ID: 
+	<input type="number" name="id">
+	<input type="submit" name="delete">
+	</form>
+	<form action="editTrainer.do?id=${weightTraining.id }" method="GET">
+	Edit Trainer By ID:
+	<input type="number" name="id">
+	<input type="submit" name="edit">
+	</form>
+	<h3><a href = "createTrainer.do?wt=${weightTraining }">Add New Trainer</a></h3>
 </body>
 </html>
